@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "poster": "https://images.pexels.com/photos/4591254/pexels-photo-4591254.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "title": "The Infinite Quest",
+      "genre": ["Adventure", "Sci-Fi"],
+      "duration": 125,
+      "releaseYear": 2023,
+      "rating": 8.5,
+      "summary": "A group of explorers ventures into uncharted territory to uncover the mysteries of an ancient civilization."
+    },
+    {
+      "id": 2,
+      "poster": "https://images.pexels.com/photos/3044630/pexels-photo-3044630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "title": "Echoes of Eternity",
+      "genre": ["Drama", "Romance"],
+      "duration": 110,
+      "releaseYear": 2021,
+      "rating": 7.9,
+      "summary": "Two lovers separated by fate find their way back to each other against all odds."
+    },
+    {
+      "id": 3,
+      "poster": "https://images.pexels.com/photos/5971313/pexels-photo-5971313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "title": "Shadow Warriors",
+      "genre": ["Action", "Thriller"],
+      "duration": 140,
+      "releaseYear": 2020,
+      "rating": 8.2,
+      "summary": "A secretive team of operatives is tasked with bringing down a powerful criminal syndicate."
+    },
+    {
+      "id": 4,
+      "poster": "https://images.pexels.com/photos/29631180/pexels-photo-29631180/free-photo-of-silhouette-at-night-under-a-starry-sky.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "title": "The Cosmic Symphony",
+      "genre": ["Fantasy", "Adventure"],
+      "duration": 150,
+      "releaseYear": 2022,
+      "rating": 9.1,
+      "summary": "An unlikely hero embarks on a journey to save their world by harnessing the power of music."
+    },
+    {
+      "id": 5,
+      "poster": "https://images.pexels.com/photos/19328719/pexels-photo-19328719/free-photo-of-symmetrical-shot-of-a-dark-tunnel.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "title": "Urban Secrets",
+      "genre": ["Mystery", "Crime"],
+      "duration": 95,
+      "releaseYear": 2019,
+      "rating": 7.6,
+      "summary": "A rookie detective uncovers shocking secrets hidden within the city's elite."
+    },
+    {
+      "id": 6,
+      "poster": "https://i.ibb.co.com/6JfH9R9/80b0bf32-39dc-4ec3-b6dd-2a29a1b27092.webp",
+      "title": "Laughter in Chaos",
+      "genre": ["Comedy", "Drama"],
+      "duration": 105,
+      "releaseYear": 2023,
+      "rating": 8.0,
+      "summary": "A mismatched group of friends navigates life’s ups and downs with humor and heart."
+    },
+    {
+      "id": 7,
+      "poster": "https://images.pexels.com/photos/29640445/pexels-photo-29640445/free-photo-of-stunning-sunset-over-california-desert-dunes.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "title": "Beyond the Horizon",
+      "genre": ["Sci-Fi", "Adventure"],
+      "duration": 130,
+      "releaseYear": 2024,
+      "rating": 8.7,
+      "summary": "In a future world, a daring pilot discovers a hidden land beyond the edge of the known universe."
+    }
+  ]
+  
