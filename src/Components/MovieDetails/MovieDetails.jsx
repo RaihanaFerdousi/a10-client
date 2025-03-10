@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Firebase/AuthContext";
+import Swal from "sweetalert2";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -9,11 +10,10 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
 
-  console.log(user)
-
+  console.log(user);
 
   useEffect(() => {
-    if (!id) return; 
+    if (!id) return;
 
     fetch(`https://a10-server.onrender.com/movies/${id}`)
       .then((res) => {
@@ -37,19 +37,27 @@ const MovieDetails = () => {
 
   const addToFavorites = () => {
     if (!user || !user.email) {
-      alert("You must be logged in to add favorites.");
+      Swal.fire({
+        icon: "error",
+        title: "You need to be logged in to add movies to favorites.",
+        footer:
+          '<Link to="/login">Login</Link> or <Link to="/signup">Sign Up</Link>',
+      });
       return;
     }
-  
+
     if (!movie) {
-      alert("Movie data is not available.");
+      Swal.fire({
+        icon: "error",
+        title: "Data is not available",
+      });
       return;
     }
-  
+
     const favoriteData = { movie, userEmail: user.email };
-  
+
     console.log("Sending favorite data:", favoriteData);
-  
+
     fetch("https://a10-server.onrender.com/favorites", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -61,15 +69,20 @@ const MovieDetails = () => {
         if (data.error) {
           alert(data.error);
         } else {
-          alert("Movie added to favorites!");
+          Swal.fire({
+            title: "Movie added to favorites successfully.",
+            icon: "success",
+          });
         }
       })
       .catch((err) => {
         console.error("Error adding to favorites:", err);
-        alert("Something went wrong, please try again.");
+        Swal.fire({
+          icon: "error",
+          title: "Something went wrong please try again.",
+        });
       });
   };
-  
 
   if (error) {
     return <div className="text-center text-xl text-red-500">{error}</div>;
@@ -84,25 +97,50 @@ const MovieDetails = () => {
       <div className="bg-gray-50 shadow-md rounded-lg w-full md:w-[800px] p-8">
         <div className="flex flex-col md:flex-row items-center gap-6">
           <div className="flex flex-col text-left w-full md:w-1/2">
-            <h1 className="text-3xl font-semibold text-gray-800 mb-4">{movie.title}</h1>
-            <p className="text-gray-600 mb-4">{movie.summary || "No summary available."}</p>
-            <div className="text-gray-700 mb-2"><strong>Genre:</strong> {movie.genre.join(", ")}</div>
-            <div className="text-gray-700 mb-2"><strong>Duration:</strong> {movie.duration} minutes</div>
-            <div className="text-gray-700 mb-2"><strong>Release Year:</strong> {movie.releaseYear}</div>
-            <div className="text-gray-700 mb-6"><strong>Rating:</strong> {movie.rating}</div>
+            <h1 className="text-3xl font-semibold text-gray-800 mb-4">
+              {movie.title}
+            </h1>
+            <p className="text-gray-600 mb-4">
+              {movie.summary || "No summary available."}
+            </p>
+            <div className="text-gray-700 mb-2">
+              <strong>Genre:</strong> {movie.genre.join(", ")}
+            </div>
+            <div className="text-gray-700 mb-2">
+              <strong>Duration:</strong> {movie.duration} minutes
+            </div>
+            <div className="text-gray-700 mb-2">
+              <strong>Release Year:</strong> {movie.releaseYear}
+            </div>
+            <div className="text-gray-700 mb-6">
+              <strong>Rating:</strong> {movie.rating}
+            </div>
           </div>
           <div className="w-full md:w-1/2 flex justify-center items-center">
-            <img src={movie.poster} alt={movie.title} className="rounded-lg shadow-lg w-full max-h-[400px] object-cover" />
+            <img
+              src={movie.poster}
+              alt={movie.title}
+              className="rounded-lg shadow-lg w-full max-h-[400px] object-cover"
+            />
           </div>
         </div>
         <div className="flex gap-3 mt-6">
-          <button onClick={deleteMovie} className="bg-red-500 text-white py-2 px-4 rounded-lg shadow transition hover:bg-red-600">
+          <button
+            onClick={deleteMovie}
+            className="bg-red-500 text-white py-2 px-4 rounded-lg shadow transition hover:bg-red-600"
+          >
             Delete Movie
           </button>
-          <button onClick={addToFavorites} className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow transition hover:bg-blue-600">
+          <button
+            onClick={addToFavorites}
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow transition hover:bg-blue-600"
+          >
             Add to Favorite
           </button>
-          <Link to='/allMovies' className="bg-black font-semibold text-white py-2 px-4 rounded-lg shadow transition">
+          <Link
+            to="/allMovies"
+            className="bg-black font-semibold text-white py-2 px-4 rounded-lg shadow transition"
+          >
             All Movies
           </Link>
         </div>
